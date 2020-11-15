@@ -5,21 +5,17 @@ class CarsProvider extends Component {
   constructor() {
     super();
     this.state = {
-      cars: {
         red: false,
         blue: false,
         yellow: false,
-      },
     }
     this.handleCar = this.handleCar.bind(this);
   }
 
   handleCar(car, side) {
     this.setState({
-      cars: {
-        ...this.state.cars,
+        ...this.state,
         [car]: side,
-      },
     });
   };
 
@@ -30,7 +26,7 @@ class CarsProvider extends Component {
     }
     const { children } = this.props;
     return(
-      <CarsContext.Provider value={{ ...contextValue }}>
+      <CarsContext.Provider value={contextValue}>
         {children}
       </CarsContext.Provider>
     )
