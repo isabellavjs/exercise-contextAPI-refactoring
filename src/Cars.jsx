@@ -6,7 +6,7 @@ import CarsContext from './context/CarsContext';
 
 class Cars extends Component {
   render() {
-    const { moveCar } = this.context;
+    const moveCar = this.context.moveCar;
     const { redCar, blueCar, yellowCar } = this.context.cars;
     return (
       <div>

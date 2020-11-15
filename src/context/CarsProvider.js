@@ -16,17 +16,19 @@ class CarsProvider extends Component {
 
   handleCar(car, side) {
     this.setState({
-      ...this.state,
-      [car]: side,
-    })
-  }
+      cars: {
+        ...this.state.cars,
+        [car]: side,
+      },
+    });
+  };
 
   render() {
     const contextValue = {
-      cars: this.state.cars,
+      ...this.state,
       moveCar: this.handleCar,
     }
-    const {children} = this.props;
+    const { children } = this.props;
     return(
       <CarsContext.Provider value={{ ...contextValue }}>
         {children}
